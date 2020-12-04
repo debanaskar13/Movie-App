@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// api-key = "8265bd1679663a7ea12ac168da84d2e8"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import Navbar from './Navbar';
+import MovieDetails from './MovieDetails';
+import Search from './Search';
+import Person from './Person';
+import Tv from './Tv';
+
+class App extends Component {
+  state = {}
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <Switch>
+          <Route path='/' component={Home} exact></Route>
+          <Route path='/details/:id' component={MovieDetails}></Route>
+          <Route path='/search/:term' component={Search}></Route>
+          <Route path='/person/:id' component={Person}></Route>
+          <Route path='/tv/:term' component={Tv}></Route>
+        </Switch>
+
+      </div>
+    );
+  }
 }
 
 export default App;
